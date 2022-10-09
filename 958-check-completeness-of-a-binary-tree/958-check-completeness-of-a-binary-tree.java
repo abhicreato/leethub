@@ -35,6 +35,7 @@ class Solution {
  
     }
        
+    // if no null seen then return true
     return true;
     
     }
