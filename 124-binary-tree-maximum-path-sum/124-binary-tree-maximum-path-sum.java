@@ -30,7 +30,9 @@ class Solution {
         int maxSumLeft = Math.max(0, maxPathAhead(root.left));
         int maxSumRight = Math.max(0, maxPathAhead(root.right));
         
+        // calculate sum of all value of smallest subtree 
         max = Math.max(max, root.val + maxSumLeft + maxSumRight ); 
+        
         
         return root.val + Math.max(maxSumLeft,maxSumRight) ;
         
