@@ -64,7 +64,9 @@ class Solution
                 visited[curr.x][curr.y] = true;
                 
                 if(curr.x == TargetPos[0] && curr.y == TargetPos[1]){
-                    ans = Math.min(ans,steps);
+                    //ans = Math.min(ans,steps);
+                    
+                    return steps;
                 }
                 
                 // Move in all 8 direction to which knight can go
