@@ -31,7 +31,6 @@ class GFG
 
 class Solution
 {
-    int ans;
     int steps;
     boolean visited [][];
     
@@ -39,7 +38,6 @@ class Solution
     public int minStepToReachTarget(int KnightPos[], int TargetPos[], int N)
     {
         // Code here
-        ans = Integer.MAX_VALUE;
         steps = 0;
         
         // x and y cordinates which knight can go
@@ -80,7 +78,7 @@ class Solution
             
         }
         
-        return ans;
+        return steps;
         
     }
     
