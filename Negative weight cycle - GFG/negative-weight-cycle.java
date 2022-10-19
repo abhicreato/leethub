@@ -45,26 +45,31 @@ class Solution
         this.dist[0] = 0;
 
         // Relax graph for (num of vertex - 1 ) times , 
-        // if results are repeting it means there is no negative return the same 
+        // if results are repeting it means there is no negative, return the same 
         for(int i = 0; i < n - 1; i++){
-            if(!relaxGraphUpdatingCost(edges, n)) return 0;
+            if(!relaxingGraphUpdatingCost(edges, n)) return 0;
         }
 
         // if still they are not equal it means it has negative cycle 
-        if(relaxGraphUpdatingCost(edges,n)) return 1;
+        if(relaxingGraphUpdatingCost(edges,n)) return 1;
         
         return 0;
         
     }
     
-    public boolean relaxGraphUpdatingCost(int[][] edges, int numOfVertex){
+    public boolean relaxingGraphUpdatingCost(int[][] edges, int numOfVertex){
         
         boolean updated = false;
         
         for(int i = 0 ; i < edges.length ; i++){
             
-            if( dist[edges[i][0]] + edges[i][2] < dist[edges[i][1]]){
-                dist[edges[i][1]] = dist[edges[i][0]] + edges[i][2];
+            int nodeSrc = edges[i][0];
+            int nodeDest = edges[i][1];
+            int weight = edges[i][2];
+            // cost[nodeDest]=Math.min(cost[nodeDest],cost[nodeSrc]+weight);
+            
+            if( dist[nodeSrc] + weight < dist[nodeDest]){
+                dist[nodeDest] = dist[nodeSrc] + weight;
                 updated = true;
             }
             // int nodeSrc = edges[j][0];
