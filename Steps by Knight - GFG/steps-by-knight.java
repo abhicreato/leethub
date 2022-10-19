@@ -44,6 +44,7 @@ class Solution
         int [] dx = {2,2,-2,-2,1,-1,1,-1};
         int [] dy = {1,-1,1,-1,2,2,-2,-2};
         
+        // For 1 based index
         visited = new boolean[N + 1][N + 1];
         
         LinkedList<Pair> q = new LinkedList<>();
@@ -57,13 +58,13 @@ class Solution
                 
                 Pair curr = q.remove();
    
+                // ignore positions which are outside the board or already visited
                 if(curr.x > N  || curr.y > N  || curr.x < 1 || curr.y < 1 || visited[curr.x][curr.y]) continue;
                 
                 visited[curr.x][curr.y] = true;
                 
+                // target hit condition 
                 if(curr.x == TargetPos[0] && curr.y == TargetPos[1]){
-                    //ans = Math.min(ans,steps);
-                    
                     return steps;
                 }
                 
