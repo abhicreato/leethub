@@ -39,28 +39,25 @@ class Solution
     
     public int isNegativeWeightCycle(int n, int[][] edges)
     {
+        //Initilize dist array with infinity except src itself
         dist = new int[n];
-        
-        //code here
         Arrays.fill(this.dist,9999);
         this.dist[0] = 0;
 
-        // Relax graph for (num of vertex - 1 ) times
+        // Relax graph for (num of vertex - 1 ) times , 
+        // if results are repeting it means there is no negative return the same 
         for(int i = 0; i < n - 1; i++){
-            if(!relaxGraph(edges, n)) return 0;
+            if(!relaxGraphUpdatingCost(edges, n)) return 0;
         }
-        
-        // relax one more time 
-        //temp = relaxGraph(edges,n);
-        
+
         // if still they are not equal it means it has negative cycle 
-        if(relaxGraph(edges,n)) return 1;
+        if(relaxGraphUpdatingCost(edges,n)) return 1;
         
         return 0;
         
     }
     
-    public boolean relaxGraph(int[][] edges, int numOfVertex){
+    public boolean relaxGraphUpdatingCost(int[][] edges, int numOfVertex){
         
         boolean updated = false;
         
