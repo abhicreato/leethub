@@ -66,16 +66,12 @@ class Solution
             int nodeSrc = edges[i][0];
             int nodeDest = edges[i][1];
             int weight = edges[i][2];
-            // cost[nodeDest]=Math.min(cost[nodeDest],cost[nodeSrc]+weight);
             
             if( dist[nodeSrc] + weight < dist[nodeDest]){
                 dist[nodeDest] = dist[nodeSrc] + weight;
                 updated = true;
             }
-            // int nodeSrc = edges[j][0];
-            // int nodeDest = edges[j][1];
-            // int weight = edges[j][2];
-            // cost[nodeDest]=Math.min(cost[nodeDest],cost[nodeSrc]+weight);
+          
         } 
         
         return updated;
