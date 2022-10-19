@@ -75,17 +75,19 @@ class Solution
                 solve(i,adj,visited,s);
             }
         }
-        
-        //System.out.println(s);
 
-        int index = 0;
-        while(!s.isEmpty()){
-            ans[index] = s.pop();
-            index++;
+        // int index = 0;
+        // while(!s.isEmpty()){
+        //     ans[index] = s.pop();
+        //     index++;
+        // }
+        
+        for(int i=0;i<V;i++){
+            ans[i] = s.pop();
         }
         
-        //System.out.println(Arrays.toString(ans));
-    
+        
+        
         return ans;
     }
     
