@@ -57,6 +57,7 @@ class Solution
         
         PriorityQueue<Pair> q = new PriorityQueue<>();
         int cost[] = new int[V];
+        int ans = 0;
         boolean visited[] = new boolean[V];
         q.add(new Pair(adj.get(0).get(0).get(0),0));
         
@@ -68,7 +69,8 @@ class Solution
             
             visited[curr.val] = true;
             
-            cost[curr.val] = curr.w;
+            //cost[curr.val] = curr.w;
+            ans += curr.w;
             
             for(ArrayList<Integer> nbr : adj.get(curr.val)){
                 if(!visited[nbr.get(0)])
@@ -83,7 +85,7 @@ class Solution
             sum += i;
         }
         
-        return sum;
+        return ans;
     
     }
     
