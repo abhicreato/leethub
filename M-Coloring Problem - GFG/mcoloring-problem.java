@@ -47,10 +47,10 @@ class solve {
         
         if(currNode == N) return true;
         
-        for(int i=1;i<=m;i++){
+        for(int i=1; i<=m; i++){
             if(canColor(currNode,color,graph,N,i)){
                 color[currNode] = i;
-                if(possibleToColor(currNode + 1, color,m,N,graph)) return true;
+                if(possibleToColor(currNode + 1, color ,m , N, graph)) return true;
                 color[currNode] = 0;
             }
         }
@@ -59,10 +59,10 @@ class solve {
         
     }
     
-    boolean canColor(int node, int[] colors, boolean graph[][],int N,int color){
+    boolean canColor(int node, int[] colors, boolean graph[][], int N, int color){
         
         for(int i=0;i<N;i++){
-            if(i != node && graph[node][i] && colors[i] == color){
+            if(graph[node][i] && colors[i] == color){
                 return false;
             }
         }
