@@ -58,6 +58,7 @@ class Solution
         int ans = 0;
         boolean visited[] = new boolean[V];
         
+        //1st get for edge second get for neigbour 3rd get for int node value for node
         q.add(new Pair(adj.get(0).get(0).get(0), 0));
         
         while(!q.isEmpty()){
