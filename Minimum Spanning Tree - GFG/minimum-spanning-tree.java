@@ -54,12 +54,11 @@ class Solution
     static int spanningTree(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj) 
     {
         // Add your code here
-        
         PriorityQueue<Pair> q = new PriorityQueue<>();
-        int cost[] = new int[V];
         int ans = 0;
         boolean visited[] = new boolean[V];
-        q.add(new Pair(adj.get(0).get(0).get(0),0));
+        
+        q.add(new Pair(adj.get(0).get(0).get(0), 0));
         
         while(!q.isEmpty()){
             
@@ -68,8 +67,7 @@ class Solution
             if(visited[curr.val]) continue;
             
             visited[curr.val] = true;
-            
-            //cost[curr.val] = curr.w;
+
             ans += curr.w;
             
             for(ArrayList<Integer> nbr : adj.get(curr.val)){
@@ -78,18 +76,10 @@ class Solution
             }
             
         }
-        
-        int sum = 0;
-        
-        for(Integer i : cost){
-            sum += i;
-        }
-        
+
         return ans;
     
     }
-    
-    
 }
 
 class Pair implements Comparable<Pair>{
