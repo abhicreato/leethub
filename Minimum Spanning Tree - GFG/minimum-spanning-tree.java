@@ -53,46 +53,75 @@ class Solution
     //Function to find sum of weights of edges of the Minimum Spanning Tree.
     static int spanningTree(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj) 
     {
-        // Add your code here
-        PriorityQueue<Pair> q = new PriorityQueue<>();
         int ans = 0;
-        boolean visited[] = new boolean[V];
+        int parents[] = new int[V];
+        Arrays.fill(parents, -1);
+        PriorityQueue<Pair> q = new PriorityQueue<>();
         
-        //1st get for edge second get for neigbour 3rd get for int node value for node
-        q.add(new Pair(adj.get(0).get(0).get(0), 0));
-        
+        for(int i=0;i<adj.size();i++){
+            for(ArrayList<Integer> nbr : adj.get(i)){
+                q.add(new Pair(i , nbr.get(0), nbr.get(1)));
+            }
+        }
+
         while(!q.isEmpty()){
             
-            Pair curr = q.remove();
+            Pair currEdge = q.remove();
+            //System.out.println(Arrays.toString(parents) + " => " + currEdge);
+            int srcAbsParent = getAbsParent(currEdge.src,parents);
+            int dstAbsParent = getAbsParent(currEdge.dst,parents);
             
-            if(visited[curr.val]) continue;
-            
-            visited[curr.val] = true;
-
-            ans += curr.w;
-            
-            for(ArrayList<Integer> nbr : adj.get(curr.val)){
-                if(!visited[nbr.get(0)])
-                q.add(new Pair(nbr.get(0),nbr.get(1)));
+            if(srcAbsParent != dstAbsParent){
+                ans = ans + currEdge.cost;
+                union(currEdge,parents);
+                //System.out.println(ans);
             }
             
         }
-
+        
         return ans;
-    
+        
     }
+    
+    static int getAbsParent(int node, int [] parents){
+        // Get Absolute parent of the node based on Union Find Set logic
+        
+        if(parents[node] < 0) return node;
+        
+        return getAbsParent(parents[node],parents);
+       
+    }
+    
+    static void union(Pair node, int [] parents){
+        // Merge two Sets based on, Union find logic 
+        // Without ranking logic
+        int srcAbsParent = getAbsParent(node.src,parents);
+        int dstAbsParent = getAbsParent(node.dst,parents);
+        
+        parents[srcAbsParent] = dstAbsParent;
+        
+    }
+    
 }
 
 class Pair implements Comparable<Pair>{
-        int val;
-        int w;
-        
-        Pair(int val,int w){
-            this.val = val;
-            this.w = w;
-        }
-        
-        public int compareTo(Pair p){
-            return this.w - p.w;
-        }
+    
+    int src;
+    int dst;
+    int cost;
+    
+    Pair(int src, int dst, int cost){
+        this.src = src;
+        this.dst = dst;
+        this.cost =cost;
+    }
+    
+    public int compareTo(Pair p){
+        return this.cost - p.cost;
+    }
+    
+    public String toString(){
+        return "[SRC : " + this.src + " DEST : " + this.dst + " COST : " + this.cost + "]";
+    }
+    
 }
