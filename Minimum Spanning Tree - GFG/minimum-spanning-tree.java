@@ -67,14 +67,13 @@ class Solution
         while(!q.isEmpty()){
             
             Pair currEdge = q.remove();
-            //System.out.println(Arrays.toString(parents) + " => " + currEdge);
+            
             int srcAbsParent = getAbsParent(currEdge.src,parents);
             int dstAbsParent = getAbsParent(currEdge.dst,parents);
             
             if(srcAbsParent != dstAbsParent){
                 ans = ans + currEdge.cost;
                 union(currEdge,parents);
-                //System.out.println(ans);
             }
             
         }
@@ -85,7 +84,6 @@ class Solution
     
     static int getAbsParent(int node, int [] parents){
         // Get Absolute parent of the node based on Union Find Set logic
-        
         if(parents[node] < 0) return node;
         
         return getAbsParent(parents[node],parents);
