@@ -86,14 +86,15 @@ class Solution
         // Get Absolute parent of the node based on Union Find Set logic
         if(parents[node] < 0) return node;
         
-        return getAbsParent(parents[node],parents);
+        return parents[node] = getAbsParent(parents[node],parents);
        
     }
     
     static void union(Pair node, int [] parents){
         // Merge two Sets based on, Union find logic 
-        // Without ranking logic ie connect src abs parent to destinations abs parent 
-        //OR dst abs parent to src abs parent 
+        // Without ranking logic ie 
+        // Connect src Absolute parent to destinations Absolute parent 
+        // OR destination Absolute parent to src Absolute parent 
         int srcAbsParent = getAbsParent(node.src,parents);
         int dstAbsParent = getAbsParent(node.dst,parents);
         
