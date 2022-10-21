@@ -92,11 +92,13 @@ class Solution
     
     static void union(Pair node, int [] parents){
         // Merge two Sets based on, Union find logic 
-        // Without ranking logic
+        // Without ranking logic ie connect src abs parent to destinations abs parent 
+        //OR dst abs parent to src abs parent 
         int srcAbsParent = getAbsParent(node.src,parents);
         int dstAbsParent = getAbsParent(node.dst,parents);
         
-        parents[srcAbsParent] = dstAbsParent;
+        //parents[srcAbsParent] = dstAbsParent;
+        parents[dstAbsParent] = srcAbsParent;
         
     }
     
