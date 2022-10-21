@@ -86,7 +86,11 @@ class Solution
         // Get Absolute parent of the node based on Union Find Set logic
         if(parents[node] < 0) return node;
         
-        return parents[node] = getAbsParent(parents[node],parents);
+        // colapsing logic to reduce recursing for subsequent query requests  
+        // return parents[node] = getAbsParent(parents[node],parents);
+        
+        // Non colapsing logic
+        return getAbsParent(parents[node],parents);
        
     }
     
