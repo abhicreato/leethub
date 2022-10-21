@@ -43,20 +43,19 @@ class Solution
         // Code here
         int ans = 0;
         boolean[] visited = new boolean[V];
-        int withEdge =0;
+        int nodeWithEdge = 0;
         boolean allZeroDegree = true;
         
         for(int i=0; i<V; i++){
             if(adj.get(i).size() > 0){
-                allZeroDegree = false;
-                withEdge = i;
+                nodeWithEdge = i;
                 break;
             }
         }
         
-        if(!allZeroDegree){
+
             
-            dfs(withEdge,adj,visited);
+            dfs(nodeWithEdge,adj,visited);
             
             for(int i=0;i<V;i++){
                 
@@ -72,8 +71,6 @@ class Solution
                 oddDegree++;
             }
             
-            //System.out.println(oddDegree);
-            
             if(oddDegree == 0){
                 return 2;
             }else if(oddDegree == 2){
@@ -82,9 +79,8 @@ class Solution
                 return 0;
             }
             
-        }
-        
-        return 2;
+            return 0;
+
     
     }
     
