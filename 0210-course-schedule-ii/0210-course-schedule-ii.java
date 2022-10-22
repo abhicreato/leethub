@@ -5,9 +5,9 @@ class Solution {
         Map<Integer,ArrayList<Integer>> graph = new HashMap<>();
         
         for(int i = 0; i<prerequisites.length; i++){            
-            ArrayList<Integer> list = graph.getOrDefault(prerequisites[i][1],new ArrayList<Integer>());
-            list.add(prerequisites[i][0]);
-            graph.put(prerequisites[i][1],list);
+            ArrayList<Integer> list = graph.getOrDefault(prerequisites[i][0],new ArrayList<Integer>());
+            list.add(prerequisites[i][1]);
+            graph.put(prerequisites[i][0],list);
         }
 
         // detect a cycle , if cycle exist then it is impossible to order course to take
@@ -33,7 +33,7 @@ class Solution {
         System.out.println(s);
         
         int size = s.size();
-        for(int i=0;i<size;i++){
+        for(int i=size-1;i>=0;i--){
             ans[i] = s.pop();
         }
         
