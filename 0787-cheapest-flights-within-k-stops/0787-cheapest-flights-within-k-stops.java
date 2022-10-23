@@ -21,13 +21,12 @@ class Solution {
         
         while(!q.isEmpty()){
             
-            System.out.println(q);
-            
             Flight curr = q.remove();
-            
+
             if(curr.stops > k) continue;
             
             if(fMap.get(curr.dst) != null){
+                
                 for(Flight c : fMap.get(curr.dst)){
                     
                     if(c.cost + curr.cost < cost[c.dst]  && curr.stops <= k){
