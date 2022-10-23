@@ -56,8 +56,6 @@ class Solution {
             this.cost = cost;
         }
         
-
-        
         public String toString(){
             return "[ " + "stops : " + this.stops + " dst : " + this.dst + ", Cost " + this.cost +" ]";
         }
