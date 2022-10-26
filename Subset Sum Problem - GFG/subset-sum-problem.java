@@ -36,6 +36,7 @@ class GFG
 class Solution{
 
     static boolean sumS [][];
+    static int sumSi [][];
 
     static Boolean isSubsetSum(int N, int arr[], int sum){
         // code here
@@ -66,12 +67,14 @@ class Solution{
     
     static boolean solve(int i, int sum, int [] arr){
         
-        if(i - 1 < 0 || sum < 0) return false;
-        
         if(sum == 0) return true;
         
-        if(sumS[i][sum]) return sumS[i][sum] || false;
-        
+        if(i == 0){
+            return sum == 0;
+        }
+
+        // memoization step here
+
         if(sum >= arr[i - 1]){
             return sumS[i][sum] = solve(i - 1, sum - arr[i - 1], arr) || solve(i - 1, sum, arr);
         }else{
