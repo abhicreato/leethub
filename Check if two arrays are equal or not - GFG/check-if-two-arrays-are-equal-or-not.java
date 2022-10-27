@@ -46,7 +46,6 @@ class Solution{
     {
         //Your code here
         if(N == 0) return true;
-        
         if(A.length != B.length) return false;
         
         Arrays.sort(A);
