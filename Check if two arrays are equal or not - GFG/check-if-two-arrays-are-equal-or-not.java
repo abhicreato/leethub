@@ -45,6 +45,9 @@ class Solution{
     public static boolean check(long A[],long B[],int N)
     {
         //Your code here
+        if(N == 0) return true;
+        
+        if(A.length != B.length) return false;
         
         Arrays.sort(A);
         Arrays.sort(B);
