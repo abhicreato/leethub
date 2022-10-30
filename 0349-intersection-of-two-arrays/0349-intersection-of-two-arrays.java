@@ -1,7 +1,6 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         
-
         Set<Integer> set = new HashSet();
         Set<Integer> ans = new HashSet();
         
@@ -23,11 +22,13 @@ class Solution {
         
         int i=0;
         for(int j: ans){
-            op[i] = j;
-            i++;
+            op[i++] = j;
+            //i++;
         }
         
         return op;
+        
+
             
     }
 }
