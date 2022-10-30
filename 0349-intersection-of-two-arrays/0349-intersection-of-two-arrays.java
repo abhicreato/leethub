@@ -4,12 +4,6 @@ class Solution {
         Set<Integer> set = new HashSet();
         Set<Integer> ans = new HashSet();
         
-//         if(nums2.length>nums1.length){
-//             int temp[] = nums1;
-//             nums1 = nums2;
-//             nums2 = temp;
-//         }
-        
         for(int i : nums1) set.add(i);
                   
         for(int i : nums2){
