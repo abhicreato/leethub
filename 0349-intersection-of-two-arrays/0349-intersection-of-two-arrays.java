@@ -1,12 +1,11 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         
-        int n1 = nums1.length;
-        int n2 = nums2.length;
+
         Set<Integer> set = new HashSet();
         Set<Integer> ans = new HashSet();
         
-        if(n2>n1){
+        if(nums2.length>nums1.length){
             int temp[] = nums1;
             nums1 = nums2;
             nums2 = temp;
@@ -20,7 +19,6 @@ class Solution {
             }
         }
     
-        
         int op[] = new int[ans.size()];
         
         int i=0;
