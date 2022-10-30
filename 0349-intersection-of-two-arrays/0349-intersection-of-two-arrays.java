@@ -4,11 +4,11 @@ class Solution {
         Set<Integer> set = new HashSet();
         Set<Integer> ans = new HashSet();
         
-        if(nums2.length>nums1.length){
-            int temp[] = nums1;
-            nums1 = nums2;
-            nums2 = temp;
-        }
+//         if(nums2.length>nums1.length){
+//             int temp[] = nums1;
+//             nums1 = nums2;
+//             nums2 = temp;
+//         }
         
         for(int i : nums1) set.add(i);
                   
@@ -23,12 +23,8 @@ class Solution {
         int i=0;
         for(int j: ans){
             op[i++] = j;
-            //i++;
         }
         
-        return op;
-        
-
-            
+        return op;     
     }
 }
