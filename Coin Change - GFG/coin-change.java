@@ -39,11 +39,13 @@ class Solution {
         
         long max = 0;
         
-        for(int i = 0; i<N; i++){
-            max = Math.max(max,solve(i,sum,coins,0));
-        }
+        // for(int i = 0; i<N; i++){
+        //     max = Math.max(max,solve(i,sum,coins,0));
+        // }
         
-        return max;
+        solve(N - 1 ,sum,coins,0);
+        
+        return dp[N - 1][sum];
 
     }
     
