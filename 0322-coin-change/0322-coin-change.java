@@ -44,23 +44,23 @@ class Solution {
         
     }
     
-    public int solve(int index, int amount, int[]coins){
+//     public int solve(int index, int amount, int[]coins){
         
-        if(index == 0){
-            if(amount % coins[index] == 0){
-                return amount/coins[index];
-            }else{
-                 return Integer.MAX_VALUE - 1;
-            }    
-        } 
+//         if(index == 0){
+//             if(amount % coins[index] == 0){
+//                 return amount/coins[index];
+//             }else{
+//                  return Integer.MAX_VALUE - 1;
+//             }    
+//         } 
         
-        if(dp[index][amount] != -1) return dp[index][amount];
+//         if(dp[index][amount] != -1) return dp[index][amount];
 
-        if(coins[index] <= amount){
-            return dp[index][amount] = Math.min(1 + solve(index, amount - coins[index], coins), solve(index - 1, amount, coins));
-        }else{
-            return dp[index][amount] = solve(index - 1, amount, coins);
-        }     
+//         if(coins[index] <= amount){
+//             return dp[index][amount] = Math.min(1 + solve(index, amount - coins[index], coins), solve(index - 1, amount, coins));
+//         }else{
+//             return dp[index][amount] = solve(index - 1, amount, coins);
+//         }     
         
-    }
+//     }
 }
