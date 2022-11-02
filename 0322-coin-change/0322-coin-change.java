@@ -11,18 +11,11 @@ class Solution {
             for(int j=0;j<=amount;j++){
                 if(i == 0) dp[i][j] = Integer.MAX_VALUE - 1;
                 if(j == 0) dp[i][j] = 0;
-                // if(i == 1){
-                //     if(j % coins[i] == 0){
-                //         dp[i][j] = j/coins[i];
-                //     }else{
-                //         dp[i][j] = Integer.MAX_VALUE - 1;
-                //     }
-                // }
             }
         }
         
         for(int i = 1; i<=n; i++){
-            for(int j = 1;j<=amount;j++){
+            for(int j = 1; j<=amount; j++){
                 
                 if(j >= coins[i-1]){
                     dp[i][j] = Math.min(1 + dp[i][j - coins[i-1]], dp[i - 1][j]);
@@ -33,8 +26,7 @@ class Solution {
             }
         }
  
-        int min = dp[n][amount];
-        
+
         /*for(int i=0;i<=n;i++){
             for(int j=0;j<=amount;j++){
                 dp[i][j] = -1;
@@ -42,6 +34,9 @@ class Solution {
         }
         
         int min = solve(n - 1, amount, coins);*/
+        
+        int min = dp[n][amount];
+        
         
         if(min < Integer.MAX_VALUE - 1) return min;
         
