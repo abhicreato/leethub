@@ -11,11 +11,30 @@ class Solution {
         
         for(int i=0;i<=l1;i++){
             for(int j=0;j<=l2;j++){
-                dp[i][j] = -1;
+                if(i==0 || j==0) dp[i][j] = 0; 
             }
         }
         
-        return solve(text1,l1,text2,l2);
+        for(int i= 1;i<=l1;i++){
+            for(int j=1;j<=l2;j++){
+                
+                if(text1.charAt(i-1) == text2.charAt(j-1)){
+                    dp[i][j] = 1 + dp[i-1][j-1];
+                }else{
+                    dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]);
+                }
+            }
+        }
+        
+        return dp[l1][l2];
+        
+//         for(int i=0;i<=l1;i++){
+//             for(int j=0;j<=l2;j++){
+//                 dp[i][j] = -1;
+//             }
+//         }
+        
+//         return solve(text1,l1,text2,l2);
         
     }
     
