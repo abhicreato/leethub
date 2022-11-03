@@ -26,7 +26,7 @@ class Solution {
         if(dp[l1][l2] != -1) return dp[l1][l2];
         
         if(t1.charAt(l1 - 1) == t2.charAt(l2 - 1)){
-            return dp[l1][l2] =  1 + solve(t1.substring(0, l1 - 1), l1 - 1,t2.substring(0, l2 - 1),l2-1);
+            return dp[l1][l2] =  1 + solve(t1.substring(0, l1 - 1), l1 - 1, t2.substring(0, l2 - 1),l2-1);
         }else{
             return dp[l1][l2] = Math.max(solve(t1, l1, t2.substring(0, l2 - 1), l2 - 1), solve(t1.substring(0, l1 - 1),l1 - 1, t2, l2));
         }
