@@ -37,11 +37,6 @@ class Solution{
     {
         // code here
         dp = new int [N+1][N+1];
-        for(int i=0;i<=N;i++){
-            for(int j=0;j<=N;j++){
-                //dp[i][j] = -1;
-            }
-        }
         
         return solve(arr, 1, N - 1);
     }
@@ -54,9 +49,9 @@ class Solution{
         
         int min = Integer.MAX_VALUE;
         
-        for(int k = i ; k <= j-1; k++){
+        for(int k = i ; k <= j - 1; k++){
             
-            int temp = solve(arr, i, k) + solve(arr, k + 1, j) + (arr[i-1] * arr[k] * arr[j]);
+            int temp = solve(arr, i, k) + solve(arr, k + 1, j) + (arr[i - 1] * arr[k] * arr[j]);
              
             min = Math.min(min, temp); 
             
