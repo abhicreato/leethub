@@ -29,17 +29,20 @@ class GFG
 //User function Template for Java
 
 class Solution{
+    
     static int ans;
     static int [][] dp;
+    
     static int matrixMultiplication(int N, int arr[])
     {
         // code here
         dp = new int [N+1][N+1];
         for(int i=0;i<=N;i++){
             for(int j=0;j<=N;j++){
-                dp[i][j] = -1;
+                //dp[i][j] = -1;
             }
         }
+        
         return solve(arr, 1, N - 1);
     }
     
@@ -47,7 +50,7 @@ class Solution{
         
         if(i >= j) return 0;
         
-        if(dp[i][j] != -1) return dp[i][j];
+        if(dp[i][j] != 0) return dp[i][j];
         
         int min = Integer.MAX_VALUE;
         
