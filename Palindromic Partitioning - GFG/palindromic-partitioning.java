@@ -44,10 +44,7 @@ class Solution{
         
         for(int k = i; k<=j-1; k++){
             
-            int left = (dp[i][k] != 0) ? dp[i][k] : solve(s, i, k);
-            int right = (dp[k + 1][j] != 0) ? dp[k + 1][j] : solve(s, k + 1, j) ;
-
-            int temp = 1 + left + right;
+            int temp = solve(s, i, k) + solve(s, k + 1, j) + 1;
             
             min = Math.min(min, temp);
         }
