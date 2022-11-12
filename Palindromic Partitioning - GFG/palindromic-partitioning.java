@@ -23,17 +23,20 @@ class GFG{
 
 class Solution{
     static int dp[][];
+    
     static int palindromicPartition(String str)
     {
         // code here
         int sl = str.length();
+        
         dp = new int [sl+1][sl+1];
+        
         return solve(str, 0, sl - 1);
     }
     
     static int solve(String s, int i, int j){
         
-        if(i>=j || isPali(s,i,j)) return 0;
+        if(i >= j || isPali(s, i, j)) return 0;
         
         if(dp[i][j] !=0) return dp[i][j];
         
@@ -41,7 +44,10 @@ class Solution{
         
         for(int k = i; k<=j-1; k++){
             
-            int temp = solve(s, i, k) + solve(s, k + 1, j) + 1;
+            int left = (dp[i][k] != 0) ? dp[i][k] : solve(s, i, k);
+            int right = (dp[k + 1][j] != 0) ? dp[k + 1][j] : solve(s, k + 1, j) ;
+
+            int temp = 1 + left + right;
             
             min = Math.min(min, temp);
         }
