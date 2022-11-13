@@ -48,10 +48,9 @@ class Solution{
                 ans = Math.max(ans,sum);
                 sum = sum - Arr.get(i);
                 i++;
-                j++;
-            }else{
-                j++;
             }
+            
+            j++;
         }
         
         return ans;
