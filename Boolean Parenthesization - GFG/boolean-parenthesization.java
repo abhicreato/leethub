@@ -53,12 +53,12 @@ class Solution{
             }
         }
         
-        int expnum=(isTrue) ? 1 : 0;
-        if(dp[i][j][expnum] != -1) return dp[i][j][expnum];
+        // int expnum=(isTrue) ? 1 : 0;
+        // if(dp[i][j][expnum] != -1) return dp[i][j][expnum];
         
-        // String key = i + " " +  j + " " + (isTrue ? "T" : "F");
+        String key = i + " " +  j + " " + (isTrue ? "T" : "F");
         
-        // if(map.containsKey(key)) return map.get(key);
+        if(map.containsKey(key)) return map.get(key);
         
         int ans = 0;
         
@@ -99,12 +99,12 @@ class Solution{
             
         }
         
-        dp[i][j][expnum]=(int) (ans %1003);
-        return dp[i][j][expnum];
+        // dp[i][j][expnum]=(int) (ans %1003);
+        // return dp[i][j][expnum];
         
-        // map.put(key, ans%1003);
+        map.put(key, ans%1003);
         
-        // return ans%1003;
+        return ans%1003;
         
     }
 } 
