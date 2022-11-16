@@ -43,8 +43,7 @@ class Solution{
             }
         }
         
-        String bol = isTrue ? "T" : "F";
-        String key = i + " " +  j + " " + bol;
+        String key = i + " " +  j + " " + (isTrue ? "T" : "F");
         
         if(map.containsKey(key)) return map.get(key);
         
