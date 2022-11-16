@@ -24,6 +24,7 @@ class GFG{
 //User function Template for Java
 
 class Solution{
+    
 
     static int countWays(int N, String S){
         // code here
@@ -53,12 +54,13 @@ class Solution{
             }
         }
         
-        // int expnum=(isTrue) ? 1 : 0;
-        // if(dp[i][j][expnum] != -1) return dp[i][j][expnum];
+        // using 3D Array 
+        int expnum=(isTrue) ? 1 : 0;
+        if(dp[i][j][expnum] != -1) return dp[i][j][expnum];
         
-        String key = i + " " +  j + " " + (isTrue ? "T" : "F");
-        
-        if(map.containsKey(key)) return map.get(key);
+        // using Map
+        // String key = i + " " +  j + " " + (isTrue ? "T" : "F");
+        // if(map.containsKey(key)) return map.get(key);
         
         int ans = 0;
         
@@ -99,12 +101,14 @@ class Solution{
             
         }
         
-        // dp[i][j][expnum]=(int) (ans %1003);
-        // return dp[i][j][expnum];
+        // using 3D array
+        dp[i][j][expnum]=(int) (ans %1003);
+        return dp[i][j][expnum];
         
-        map.put(key, ans%1003);
-        
-        return ans%1003;
+        // Question asked for modulo 1003
+        //map.put(key, ans%1003);
+        //return ans%1003;
         
     }
+
 } 
