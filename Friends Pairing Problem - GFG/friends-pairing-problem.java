@@ -40,7 +40,13 @@ class Solution
       dp[1] = 1;
       dp[2] = 2;
       
-      return (long) solve(n);
+      for(int i = 3 ; i <= n ; i++){
+          dp[i] = (dp[i-1] + ((i-1) * dp[i-2])) % mod;
+      }
+      
+      return (long) dp[n];
+      
+      //return (long) solve(n);
     }
     
     public double solve(int n){
