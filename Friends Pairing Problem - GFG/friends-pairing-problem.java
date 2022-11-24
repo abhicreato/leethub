@@ -35,12 +35,12 @@ class Solution
       dp = new double[n+1];
       
       for(int i=0;i<=n;i++) dp[i] = -1;
+      
       dp[0] = 0;
       dp[1] = 1;
       dp[2] = 2;
       
-      solve(n);
-      return (long) dp[n];
+      return (long) solve(n);
     }
     
     public double solve(int n){
@@ -50,7 +50,7 @@ class Solution
         if(dp[n] != -1) return dp[n];
         
         double ifSingle = solve(n - 1);
-        double ifPaired = (n - 1) * solve(n - 2) ;
+        double ifPaired = (n - 1) * solve(n - 2);
         
         return dp[n] = (ifSingle + ifPaired) % mod;
     }
