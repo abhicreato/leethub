@@ -16,8 +16,8 @@ class Solution {
         
         solve(matrix,0,0);
         
-        //return (int) Math.pow(maximalSquareSize, 2);
-        return maximalSquareSize * maximalSquareSize;
+        return (int) Math.pow(maximalSquareSize, 2);
+        //return maximalSquareSize * maximalSquareSize;
     }
     
     public int solve(char[][] mat, int m, int n){
