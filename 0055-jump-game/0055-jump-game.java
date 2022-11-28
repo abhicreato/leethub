@@ -2,10 +2,19 @@ class Solution {
     int dp[];
     public boolean canJump(int[] nums) {
         
-        dp = new int[nums.length + 1];
-        for(int i=0;i<=nums.length;i++) dp[i] = -1;
-        return solve(nums, 0) == 1 ? true : false ;
+        // dp = new int[nums.length + 1];
+        // for(int i=0;i<=nums.length;i++) dp[i] = -1;
+        // return solve(nums, 0) == 1 ? true : false ;
         
+        int canReach = 0;
+        for (int i = 0; i <= canReach; i++) {
+            canReach = Math.max(canReach, i + nums[i]);
+            
+            if (canReach >= nums.length - 1) return true;
+        }
+        
+        return false;
+  
     }
     
     public int solve(int[] nums, int currIndex){
