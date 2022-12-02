@@ -38,8 +38,17 @@ class Solution {
         
         if(dp[h] != -1) return dp[h];
         
-        long ans = solve(h - 1) * (2 * solve(h - 2) + solve(h - 1));
+        long ans = (solve(h-1) * solve(h-2) + 
+                    solve(h-2) * solve(h-1) +
+                    solve(h-1) * solve(h-1));
         
         return dp[h] = ans % (long) (1e9 + 7);
     }
 }
+
+
+// A B C 
+
+// ab + ba + cc
+
+// 2ab + cc
