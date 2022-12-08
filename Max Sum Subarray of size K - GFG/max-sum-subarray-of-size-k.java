@@ -35,24 +35,27 @@ class GFG
 class Solution{
     static long maximumSumSubarray(int K, ArrayList<Integer> Arr,int N){
         // code here
-        long ans = Long.MIN_VALUE;
-        int i = 0;
-        int j = 0;
-        long sum = 0;
+        int i =0;
+        int j =0;
+        long sum =0;
+        long max = Integer.MIN_VALUE;
         
         while(j<N){
             
             sum = sum + Arr.get(j);
             
             if(j - i + 1 == K){
-                ans = Math.max(ans,sum);
+                max = Math.max(max,sum);
                 sum = sum - Arr.get(i);
                 i++;
             }
             
             j++;
+            
         }
         
-        return ans;
+        return max;
     }
 }
+
+
