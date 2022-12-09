@@ -8,20 +8,14 @@ class Solution {
         
         maxAtLeft[0] = height[0];
         for(int i=1;i<l;i++){
-            if(maxAtLeft[i-1] > height[i]){
-                maxAtLeft[i] = maxAtLeft[i-1];
-            }else{
-                maxAtLeft[i] = height[i];
-            }
+          maxAtLeft[i] = Math.max(maxAtLeft[i-1],height[i]);
         }
         
         maxAtRight[l-1] = height[l-1];
         for(int i=l-2;i>=0;i--){
-            if(maxAtRight[i+1] > height[i]){
-                maxAtRight[i] = maxAtRight[i+1];
-            }else{
-                maxAtRight[i] = height[i];
-            }
+            
+            maxAtRight[i] = Math.max(maxAtRight[i+1],height[i]);
+
         }
 
         for(int i=0;i<l;i++){
