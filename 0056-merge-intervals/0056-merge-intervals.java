@@ -1,61 +1,45 @@
-class Pair implements Comparable<Pair>{
-    int x;
-    int y;
-    
-    Pair(int x,int y){
-        this.x=x;
-        this.y=y;
-    }
-    
-    public int compareTo(Pair p){
-        if(this.x!=p.x){
-            return this.x-p.x;
-        }else{
-            return this.y-p.y;
-        }
-    }
-
-}
 class Solution {
     public int[][] merge(int[][] intr) {
 
         int row = intr.length;
+        int [][] ans = new int[row][2];
         
-        Pair in[] = new Pair[row];
-        
-        for(int i=0;i<row;i++){
-            in[i] = new Pair(intr[i][0],intr[i][1]);
+        for(int []pair :ans){
+            Arrays.fill(pair,-1);
         }
         
-        Arrays.sort(in);
-        Stack<Pair> s = new Stack<>();
-        Pair tempPair = null;
+        Arrays.sort(intr, Comparator.comparingInt(o -> o[0]));
+        ans[0] = intr[0];
         
-        for(int i=0;i<row;i++){
-            if(s.empty()){
-                s.push(in[i]);
-            }else{
-                tempPair = s.peek();
-                if(in[i].x <= tempPair.y){
-                    s.pop();
-                    s.push(new Pair(tempPair.x, Math.max(tempPair.y,in[i].y)));
-                }else{
-                    s.push(in[i]);
-                }
-            }
-        }
-        
-        int [][] op2 = new int[s.size()][2];
-        
-        int size=s.size();
-        
-        for(int i=0;i<size;i++){
-            Pair t = s.pop();
-            op2[i][0] = t.x;
-            op2[i][1] = t.y;
-        }
-
-        return op2;
+        int i = 0;
+        for(int j = 1; j < row; j++){
             
+            if(intr[j][0] <= ans[i][1]){
+                ans[i][1] = Math.max(intr[j][1], ans[i][1]);
+            }else{
+                ans[++i] = intr[j];
+            }
+            
+        }
+        
+        for(int []pair :ans){
+             System.out.print(Arrays.toString(pair));
+        }
+       
+
+        int length = 0;
+        for(int pair[] :ans){
+            if(pair[0] != -1) length++;
+        }
+        
+        int [][] op = new int[length][2];
+        
+        for(int j=0;j<length;j++){
+            op[j] = ans[j];
+        }
+        
+        return op;
+        
+      
     }
 }
