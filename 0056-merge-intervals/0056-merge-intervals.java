@@ -22,11 +22,6 @@ class Solution {
             
         }
         
-        for(int []pair :ans){
-             System.out.print(Arrays.toString(pair));
-        }
-       
-
         int length = 0;
         for(int pair[] :ans){
             if(pair[0] != -1) length++;
@@ -40,6 +35,5 @@ class Solution {
         
         return op;
         
-      
     }
 }
