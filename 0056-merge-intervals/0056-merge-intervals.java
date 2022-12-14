@@ -1,11 +1,11 @@
 class Solution {
-    public int[][] merge(int[][] intervals) {
+   public int[][] merge(int[][] intervals) {
 
-         if(intervals.length == 0){
+        if(intervals.length == 0){
             return intervals;
         }
-    
-        Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
+
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
 
         List<int[]> output_arr = new ArrayList();
         int[] current_interval = intervals[0];
