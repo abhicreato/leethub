@@ -16,11 +16,14 @@ class Solution {
             
             if(nums[pre] >= nums[mid] && nums[next] >= nums[mid]){
                 return nums[mid];
-            }else if(nums[start] <= nums[end]){
+            }
+            if(nums[start] <= nums[end]){
                 return nums[start];
-            }else if(nums[mid] >= nums[start]){
+            }
+            if(nums[mid] >= nums[start]){
                 start = mid + 1;
-            }else if(nums[mid] <= nums[end]){
+            }
+            if(nums[mid] <= nums[end]){
                 end = mid - 1;
             }
             
