@@ -5,7 +5,6 @@ class Solution {
         int start = 0;
         int end = l - 1;
         int mid = 0;
-        int ans = -1;
         
         while(start <= end){
             
@@ -29,6 +28,6 @@ class Solution {
             
         }
         
-        return ans;
+        return 0;
     }
 }
