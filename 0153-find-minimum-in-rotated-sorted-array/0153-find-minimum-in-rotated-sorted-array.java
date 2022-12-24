@@ -4,11 +4,10 @@ class Solution {
         int l = nums.length;
         int start = 0;
         int end = l - 1;
-        int mid = 0;
         
         while(start <= end){
             
-            mid = (start + end)/2;
+            int mid = (start + end)/2;
             
             int pre = (mid + l - 1) % l;
             int next = (mid + 1) % l;
