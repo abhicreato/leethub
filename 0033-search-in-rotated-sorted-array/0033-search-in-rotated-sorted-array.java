@@ -11,6 +11,10 @@ class Solution {
             
             int mid = (start + end)/2;
             
+            if(nums[minIdx] == target){
+                return minIdx;
+            }
+            
             int pre = (mid + l - 1) % l;
             int next = (mid + 1) % l;
             
@@ -33,9 +37,7 @@ class Solution {
         
         System.out.println(minIdx);
         
-        if(nums[minIdx] == target){
-            return minIdx;
-        }
+        
         
         int left = bs(nums, 0, minIdx - 1, target);
         int right = bs(nums, minIdx, l-1, target);
