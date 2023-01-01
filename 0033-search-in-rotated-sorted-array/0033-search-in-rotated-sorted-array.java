@@ -9,8 +9,8 @@ class Solution {
             return minIdx;
         }
             
-        int left = bs(nums, 0, minIdx - 1, target);
-        int right = bs(nums, minIdx, l - 1, target);
+        int left = binarySearch(nums, 0, minIdx - 1, target);
+        int right = binarySearch(nums, minIdx, l - 1, target);
                 
         if(left!=-1){
             return left;
@@ -21,7 +21,7 @@ class Solution {
 
     }
     
-    int bs(int arr[],int s,int e,int key){
+    int binarySearch(int arr[],int s,int e,int key){
 
         while(s<=e){
             
