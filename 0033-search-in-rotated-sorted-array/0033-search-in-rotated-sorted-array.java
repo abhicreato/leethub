@@ -35,7 +35,6 @@ class Solution {
             
         }
         
-        
         int left = bs(nums, 0, minIdx - 1, target);
         int right = bs(nums, minIdx, l-1, target);
                 
