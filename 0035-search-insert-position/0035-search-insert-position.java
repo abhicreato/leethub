@@ -12,9 +12,7 @@ class Solution {
             
             mid = (s+e)/2;
             
-            if(nums[mid] == target){
-                return mid;
-            }else if(nums[mid] <= target){
+            if(nums[mid] < target){
                 s = mid + 1;
             }else{
                 e = mid - 1;
