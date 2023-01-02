@@ -3,20 +3,25 @@ class Solution {
     
         int l = nums.length;
         
+        // Find minimun in rotted sorted array
         int minIdx = findMin(nums, l);
         
         if(nums[minIdx] == target){
             return minIdx;
         }
             
+        // consider min value as pivot and search on both side
         int left = binarySearch(nums, 0, minIdx - 1, target);
         int right = binarySearch(nums, minIdx, l - 1, target);
-                
+          
+        // return the index of left or right side 
         if(left!=-1){
             return left;
         }if(right!=-1){
             return right;
         }
+        
+        // if not present on both side means not present return -1
         return -1;
 
     }
