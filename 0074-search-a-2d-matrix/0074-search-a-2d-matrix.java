@@ -10,7 +10,7 @@ class Solution {
             int mid = (s+e)/2;
             
             if(target >= matrix[mid][0] && target <= matrix[mid][c-1]){
-                return binarySeach(matrix[mid],target);
+                return binarySeach(matrix[mid], target);
             }
             
             if(target < matrix[mid][0]) e = mid - 1;
