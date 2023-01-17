@@ -25,3 +25,13 @@ class Solution {
         return 0;
     }
 }
+
+/*
+**************** Logic ****************
+DP:
+Similar to 0-1 Knapsack.
+1. We must pick the current element if the previous element was selected.
+2. We may or may not pick the current element if the previous element was not selected.
+Kadane's Algorithm:
+If at any point sum becomes negative then no point keeping it because 0 is obviously greater than negative, so just make your sum 0.
+*/
