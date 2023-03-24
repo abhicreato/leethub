@@ -18,26 +18,22 @@ class BrowserHistory {
     }
     
     public String back(int steps) {
-        DoublyLinkedList current = this.history;
-        while(steps > 0 && current.prev != null){
-            current = current.prev;
+        while(steps > 0 && this.history.prev != null){
+            this.history = this.history.prev;
             steps--;
         }
-        
-        this.history = current;
-        return current.data;
+        return this.history.data;
  
     }
     
     public String forward(int steps) {
         
         DoublyLinkedList current = this.history;
-        while(steps > 0 && current.next !=null){
-            current = current.next;
+        while(steps > 0 && this.history.next !=null){
+            this.history = this.history.next;
             steps--;
         }
-        this.history = current;
-        return current.data;
+        return this.history.data;
 
     }
 }
